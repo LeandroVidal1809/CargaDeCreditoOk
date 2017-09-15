@@ -5,6 +5,7 @@ import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {firebase}  from 'firebase/database';
 import { TabsPage } from '../tabs/tabs';
+import { RegisterPage } from '../register/register';
 /**
  * Generated class for the LoginPage page.
  *
@@ -24,20 +25,31 @@ password:string;
   }
   async login()
   {
-  var result = await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
+   await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
+                        .then(result => {this.navCtrl.push(TabsPage)})
                         .catch(function(error) {         
                             alert(error.message);
                             //console.log(error);
                             
                         });
 
-                      if(result!=undefined){
-                        this.navCtrl.push(TabsPage)
-                        console.log("INGRESO");
-                      }
+                      // if(result!=undefined){
+                        
+                      //   console.log("INGRESO");
+                      // }
 
   }
+UserValido()
+{
+this.username="Leandro@Leandro.com";
+this.password="Leandro123";
 
+}
+
+Registrarse(){
+  this.navCtrl.push(RegisterPage);
+
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }

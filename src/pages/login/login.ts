@@ -21,6 +21,7 @@ import { RegisterPage } from '../register/register';
 export class LoginPage {
 username:string;
 password:string;
+tipoUser:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,private _auth:AngularFireAuth) {
   }
   async login()

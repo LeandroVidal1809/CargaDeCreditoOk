@@ -1,5 +1,5 @@
 <ion-list>
-  <h1> Bienvenido a la Carga de tu Celular, inicia sesion para comenzar, si no tenes cuenta, hace click en Registrarse</h1>
+  <h1> Bienvenido a la Carga de tu Celular!</h1>
     <ion-item>
       <ion-label floating>Username</ion-label>
       <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
@@ -16,6 +16,16 @@
     <button ion-button full  (click)="login()">Login</button>
     <button ion-button color="light" (click)="UserValido()">UseValid</button>
     <button ion-button color ="light"  (click)="Registrarse()">Registrarse</button>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Seleccione un Usuario...</ion-label>
+        <ion-select [(ngModel)]="tipoUser">
+          <ion-option value="User">Usuario</ion-option>
+          <ion-option value="Admin">Administrador</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
  
   </div>
 

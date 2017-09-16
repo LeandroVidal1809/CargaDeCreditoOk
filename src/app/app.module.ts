@@ -9,6 +9,8 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { EscanearPage } from '../pages/Escanear/Escanear';
+import { MiCreditoPage } from '../pages/mi-credito/mi-credito';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
@@ -33,7 +35,9 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MiCreditoPage,
+    EscanearPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,9 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MiCreditoPage,
+    EscanearPage
   ],
   providers: [
     StatusBar,

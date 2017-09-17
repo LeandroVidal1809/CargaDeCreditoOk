@@ -1,31 +1,36 @@
+
 <ion-list>
   <h1> Bienvenido a la Carga de tu Celular!</h1>
     <ion-item>
-      <ion-label floating>Username</ion-label>
+      <ion-label floating>Usuario</ion-label>
       <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label floating>Password</ion-label>
+      <ion-label floating>Clave</ion-label>
       <ion-input [(ngModel)]="password"  type="password" value=""></ion-input>
+   
     </ion-item>
-  
   </ion-list>
-  
-  <div padding>
-    <button ion-button full  (click)="login()">Login</button>
-    <button ion-button color="light" (click)="UserValido()">UseValid</button>
-    <button ion-button color ="light"  (click)="Registrarse()">Registrarse</button>
-
+    <div padding   style="width: 100%; padding: 26px; text-align:right;">
+      <button ion-button  icon-right outline  (click)="Registrarse()">
+          Registrarse
+        <ion-icon name="md-person-add"></ion-icon>
+      </button>
+      <button ion-button  icon-right outline   (click)="login()">
+          Ingresar
+        <ion-icon name="md-arrow-round-forward"></ion-icon>
+      </button>    
     <ion-list>
       <ion-item>
         <ion-label>Seleccione un Usuario...</ion-label>
-        <ion-select [(ngModel)]="tipoUser">
-          <ion-option value="User">Usuario</ion-option>
-          <ion-option value="Admin">Administrador</ion-option>
+        <ion-select [(ngModel)]="tipoUser" (ionChange)="UserValido()">
+          <ion-option value="usuario">Usuario</ion-option>
+          <ion-option value="admin">Administrador</ion-option>
+          <ion-option value="invitado">Invitado</ion-option>
+          <ion-option value="jugador1">Jugador 1</ion-option>
+          <ion-option value="jugador2">Jugador 2</ion-option>
         </ion-select>
       </ion-item>
     </ion-list>
- 
   </div>
-

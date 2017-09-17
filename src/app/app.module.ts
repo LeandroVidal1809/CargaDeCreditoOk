@@ -18,12 +18,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCvYNnOsPCinu79_TmuRpUGFLx1WRGRVeM",
-  authDomain: "usuariopps-965b9.firebaseapp.com",
-  databaseURL: "https://usuariopps-965b9.firebaseio.com",
-  projectId: "usuariopps-965b9",
-  storageBucket: "usuariopps-965b9.appspot.com",
-  messagingSenderId: "957900585632"
+    apiKey: "AIzaSyApow-THqHA951UUnzkGmAFY1BnXvKh8MQ",
+    authDomain: "cargadecelularok.firebaseapp.com",
+    databaseURL: "https://cargadecelularok.firebaseio.com",
+    projectId: "cargadecelularok",
+    storageBucket: "",
+    messagingSenderId: "966090496380"
 };
 
 

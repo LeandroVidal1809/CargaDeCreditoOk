@@ -22,15 +22,17 @@ export class RegisterPage {
   username:string;
   password:string;
   Mensaje:string;
+  passwordconfirm:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,private _auth:AngularFireAuth) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-
   async Aceptar()
   {
+
+    if(this.password==this.passwordconfirm)
     try{
       const result = await this._auth.auth.createUserWithEmailAndPassword(this.username,this.password);
       this.Mensaje=this.username + " Fue ingresado Exitosamente!"
@@ -41,7 +43,8 @@ export class RegisterPage {
       console.error(e);
           alert(e);
       }
-      
+    else
+      {alert("las claves no coinciden, intente nuevamente");}
       
 
   }

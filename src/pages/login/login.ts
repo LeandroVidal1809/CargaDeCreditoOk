@@ -7,6 +7,7 @@ import {firebase}  from 'firebase/database';
 import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../register/register';
 import { AlertController } from 'ionic-angular';
+
 /**
  * Generated class for the LoginPage page.
  *

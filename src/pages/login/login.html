@@ -1,36 +1,48 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<ion-list>
-  <h1> Bienvenido a la Carga de tu Celular!</h1>
-    <ion-item>
-      <ion-label floating>Usuario</ion-label>
-      <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
-    </ion-item>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<section class="login-info">
+ <h3 class="text-center"> BIENVENIDO A LA CARGA DE CREDITO</h3>
+  <div class="container">
+    <div class="row main">
+         
+      <div class="main-content">
+              
+            <div class="input-group ">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+              <input id="email" type="text"  [(ngModel)]="username" class="form-control" name="email" placeholder="Ingresa tu Email">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+              <input id="password" [(ngModel)]="password" type="password" class="form-control" name="password" placeholder="Ingresa tu clave">
+            </div>
+            <div padding>
+            <ion-list>
+              <ion-item>
+                <ion-label>Seleccione un Usuario...</ion-label>
+                <ion-select [(ngModel)]="tipoUser" (ionChange)="UserValido()">
+                  <ion-option value="usuario">Usuario</ion-option>
+                  <ion-option value="admin">Administrador</ion-option>
+                  <ion-option value="invitado">Invitado</ion-option>
+                  <ion-option value="jugador1">Jugador 1</ion-option>
+                  <ion-option value="jugador2">Jugador 2</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            </div>
+            <div class="form-group ">
+                <a href="#" type="button"   (click)="login()" class="btn btn-danger btn-lg btn-block login-button">login</a>
+                <a href="#" type="button"   (click)="Registrarse()" class="btn btn-danger btn-lg btn-block login-button">Registrarme</a>
+            </div>
+            
   
-    <ion-item>
-      <ion-label floating>Clave</ion-label>
-      <ion-input [(ngModel)]="password"  type="password" value=""></ion-input>
-   
-    </ion-item>
-  </ion-list>
-    <div padding   style="width: 100%; padding: 26px; text-align:right;">
-      <button ion-button  icon-right outline  (click)="Registrarse()">
-          Registrarse
-        <ion-icon name="md-person-add"></ion-icon>
-      </button>
-      <button ion-button  icon-right outline   (click)="login()">
-          Ingresar
-        <ion-icon name="md-arrow-round-forward"></ion-icon>
-      </button>    
-    <ion-list>
-      <ion-item>
-        <ion-label>Seleccione un Usuario...</ion-label>
-        <ion-select [(ngModel)]="tipoUser" (ionChange)="UserValido()">
-          <ion-option value="usuario">Usuario</ion-option>
-          <ion-option value="admin">Administrador</ion-option>
-          <ion-option value="invitado">Invitado</ion-option>
-          <ion-option value="jugador1">Jugador 1</ion-option>
-          <ion-option value="jugador2">Jugador 2</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+        
+        </div>
+      </div>
   </div>
+  </section>

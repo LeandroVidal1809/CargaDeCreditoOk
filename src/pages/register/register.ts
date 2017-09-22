@@ -6,6 +6,8 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 import {firebase}  from 'firebase/database';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
+import { AlertController } from 'ionic-angular';
+/**
 /**
  * Generated class for the RegisterPage page.
  *
@@ -23,7 +25,7 @@ export class RegisterPage {
   password:string;
   Mensaje:string;
   passwordconfirm:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private _auth:AngularFireAuth) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController,public navParams: NavParams,private _auth:AngularFireAuth) {
   }
 
   ionViewDidLoad() {
@@ -32,6 +34,7 @@ export class RegisterPage {
   async Aceptar()
   {
 
+    if(this.password.length>5){
     if(this.password==this.passwordconfirm)
     try{
       const result = await this._auth.auth.createUserWithEmailAndPassword(this.username,this.password);
@@ -41,13 +44,41 @@ export class RegisterPage {
       }
       catch(e){
       console.error(e);
-          alert(e);
+        this.showAlert(e,"error al registrarse");
       }
     else
-      {alert("las claves no coinciden, intente nuevamente");}
-      
+      {this.showAlert("las claves no coinciden , intente nuevamente","error al registrarse")}
+  }
+  else
+    {
+
+      this.showAlert("la clave debe contener por lo menos 6 caracteres","error al registrarse")
+    }
 
   }
+  showAlert(mensaje:string,titulo:string) {
+
+    switch(mensaje)
+    {
+      
+      case "The email address is badly formatted.":
+      {
+
+        mensaje="El email no contiene un formato correcto";
+        break;
+      }
+     
+
+    }
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
+  }  
+
+
   async Cancelar()
   {
     this.navCtrl.push(LoginPage);

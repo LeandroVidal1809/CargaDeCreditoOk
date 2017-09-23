@@ -21,10 +21,10 @@
               <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
               <input id="password" [(ngModel)]="password" type="password" class="form-control" name="password" placeholder="Ingresa tu clave">
             </div>
-            <div padding>
+          
             <ion-list>
               <ion-item>
-                <ion-label>Seleccione un Usuario...</ion-label>
+                <ion-label>Seleccione un usuario...</ion-label>
                 <ion-select [(ngModel)]="tipoUser" (ionChange)="UserValido()">
                   <ion-option value="usuario">Usuario</ion-option>
                   <ion-option value="admin">Administrador</ion-option>
@@ -34,9 +34,9 @@
                 </ion-select>
               </ion-item>
             </ion-list>
-            </div>
+     
             <div class="form-group ">
-                <a href="#" type="button"   (click)="login()" class="btn btn-danger btn-lg btn-block login-button">login</a>
+                <a href="#" type="button"   (click)="login()" class="btn btn-danger btn-lg btn-block login-button">Ingresar</a>
                 <a href="#" type="button"   (click)="Registrarse()" class="btn btn-danger btn-lg btn-block login-button">Registrarme</a>
             </div>
             

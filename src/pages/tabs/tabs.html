@@ -1,6 +1,6 @@
 <ion-tabs>
-  <ion-tab [root]="tab3Root" tabTitle="Inicio" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab1Root" tabTitle="Escanear" tabIcon="md-qr-scanner"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Mi credito" tabIcon="ios-phone-portrait-outline"></ion-tab>
+  <ion-tab [root]="tab3Root" [rootParams]="usuario" tabTitle="Inicio" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab1Root" tabTitle="Escanear" [rootParams]="usuario" tabIcon="md-qr-scanner"></ion-tab>
+  <ion-tab [root]="tab2Root" (ionSelect)="acumula()" tabTitle="Mi credito" [rootParams]="usuario" tabIcon="ios-phone-portrait-outline"></ion-tab>
 
 </ion-tabs>

@@ -3,16 +3,30 @@
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
--->
+ Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Escanear</ion-title>
+      <a (click)="scan()" class="btn btn-block btn-sm btn-info">Escanear nuevamente <span class="glyphicon glyphicon-play"></span></a>
+   
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+  
+  <div *ngIf="scanData">
+      <br><br><br>
+      <h3>{{mensajeSaldo}}</h3>
+      <br><br><br><br>
+     <a (click)="Cargar()" class="btn btn-block btn-info">Cargar <span class="glyphicon glyphicon-phone"></span></a>
+  </div>
 </ion-content>

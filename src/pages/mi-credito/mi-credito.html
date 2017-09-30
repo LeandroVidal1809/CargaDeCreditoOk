@@ -5,11 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-  <h2 class="hcolor">Tu saldo es de $(valor)</h2>
+  <h1 class="hcolor">Su saldo es de ${{valor}}</h1>
   <p class="hcolor">
-  El día (fecha) cargaste $(valor)
-  </p>
-             
+    <a (click)="habilita()" class="btn btn-block btn-info">Ultimos Movimientos <span class="glyphicon glyphicon-phone"></span></a>
+  <h4 [hidden]="habiliar"   *ngFor="let item of miArray">
+      -El día {{item.Fecha}} usted a cargado ${{item.valor}}
+        
+      </h4>
+       
 </ion-content>
 <body> 
 </body> 

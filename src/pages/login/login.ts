@@ -6,8 +6,8 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 import {firebase}  from 'firebase/database';
 import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../register/register';
-import { AlertController } from 'ionic-angular';
 
+import { AlertController,LoadingController,Loading } from 'ionic-angular';
 /**
  * Generated class for the LoginPage page.
  *
@@ -27,7 +27,8 @@ tipoUser:string;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private _auth:AngularFireAuth,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public spinner:LoadingController) {
   }
   async login()
   {
@@ -36,9 +37,11 @@ tipoUser:string;
         this.showAlert("Debe completar el Email y su Clave para ingresar","Campo vacio!");
       }
       else{
+        let mispinner =  this.SpinnerStart();
+        mispinner.present();
    await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
-                        .then(result => {this.navCtrl.push(TabsPage)})
-                        .catch(error =>{this.showAlert(error.message,"Error al ingresar!")})
+                        .then(result => {mispinner.dismiss(); this.navCtrl.push(TabsPage,{usuario:this.username})})
+                        .catch(error =>{mispinner.dismiss();this.showAlert(error.message,"Error al ingresar!")})
 
                         
 
@@ -101,10 +104,22 @@ tipoUser:string;
     alert.present();
   }  
 
-Registrarse(){
-  this.navCtrl.push(RegisterPage);
+  Registrarse(){
+    this.navCtrl.push(RegisterPage);
+  
+  }
 
-}
+  SpinnerStart():Loading
+  {
+    let loader= this.spinner.create({
+
+      duration: 30000,
+      content:"Ingresando"
+    })
+    return loader;
+  
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }

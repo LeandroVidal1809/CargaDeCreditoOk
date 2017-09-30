@@ -13,7 +13,7 @@ import { EscanearPage } from '../pages/Escanear/Escanear';
 import { MiCreditoPage } from '../pages/mi-credito/mi-credito';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -62,7 +62,9 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+
   ]
 })
 export class AppModule {}
